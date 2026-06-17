@@ -18,12 +18,13 @@ function App() {
   };
 
   const calculate = () => {
-    try {
-      setInput(eval(input).toString());
-    } catch {
-      setInput("Error");
-    }
-  };
+  try {
+    const result = evaluate(input);
+    setInput(result.toString());
+  } catch (error) {
+    setInput("Error");
+  }
+};
 
   const clearInput = () => {
     setInput("");
@@ -32,7 +33,7 @@ function App() {
   return (
     <>
     <div className="calculator">
-      <h1>React Calculator</h1>
+      <h1>Calculator</h1>
 
       <input type="text" value={input} readOnly />
 
